@@ -1,0 +1,715 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Reakgato Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #ff6b35;
+            --dark-blue: #1a237e;
+            --light-blue: #3f51b5;
+            --gray-dark: #2c3e50;
+            --gray-light: #ecf0f1;
+            --white: #ffffff;
+            --accent-gold: #f39c12;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-orange);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-orange);
+            transform: translateY(-2px);
+        }
+
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(63, 81, 181, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23344955" width="1200" height="400"/><polygon fill="%232c3e50" points="0,400 1200,300 1200,400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .banner-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .banner-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--white), var(--primary-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            font-size: 1.1rem;
+        }
+
+        .breadcrumb li {
+            margin: 0 0.5rem;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '›';
+            margin-left: 1rem;
+            color: var(--primary-orange);
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Services Content */
+        .services-content {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-blue);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-orange);
+            border-radius: 2px;
+        }
+
+        .services-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Service Categories */
+        .service-category {
+            margin-bottom: 5rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-orange);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-orange), var(--accent-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: var(--dark-blue);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-orange), var(--accent-gold));
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-item p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-orange);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Industry Focus */
+        .industry-focus {
+            background: var(--gray-light);
+            padding: 5rem 0;
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .industry-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+        }
+
+        .industry-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, var(--primary-orange), var(--accent-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .industry-card:hover .industry-icon {
+            background: var(--white);
+            color: var(--primary-orange);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-orange), var(--accent-gold));
+            color: var(--white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            background: linear-gradient(45deg, var(--accent-gold), var(--primary-orange));
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .category-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">REAKGATO</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="banner-content">
+            <h1>Our Services</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Services</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Services Content -->
+    <section class="services-content">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Mining Solutions</h2>
+            
+            <div class="services-intro">
+                <p>Reakgato Solutions provides process & engineering expertise for each application, integrating products into your plant operations, and providing ongoing process optimization to lower your cost of ownership through expert service & engineering support.</p>
+            </div>
+            
+            <!-- Crushing & Wear Parts -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">⚙️</div>
+                    <h2 class="category-title">Crushing & Wear Parts</h2>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Jaw Crusher Wear Parts</h3>
+                        <p>Engineered to last longer and crush more efficiently while reducing wear and tear on the crusher.</p>
+                        <ul class="service-features">
+                            <li>Machined surfaces for consistent fit</li>
+                            <li>Various tooth designs and curves</li>
+                            <li>Unsurpassed alloys for extended wear life</li>
+                            <li>Better quality rock production</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3>Cone Crusher Wear Parts</h3>
+                        <p>Replacement wear parts to fit all major cone crusher models, including high-horsepower crushers.</p>
+                        <ul class="service-features">
+                            <li>Custom configuration for consistent production</li>
+                            <li>Long-lasting manganese steel parts</li>
+                            <li>Precise fitting distributes stresses</li>
+                            <li>Gripper slot bowl liners for oversized rock</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3>Side Liners & Cheek Plates</h3>
+                        <p>Full range of jaw and impactor side liners manufactured to 450 Brinell steel hardness.</p>
+                        <ul class="service-features">
+                            <li>Heavy-duty fixed jaw liners</li>
+                            <li>Available in 18% & 22% manganese</li>
+                            <li>Reduces number of liner changes</li>
+                            <li>Compatible with various machines</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipment Supply -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">🏭</div>
+                    <h2 class="category-title">Equipment Supply</h2>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Crushers</h3>
+                        <p>Complete range of crushing equipment for various applications and materials.</p>
+                        <ul class="service-features">
+                            <li>Jaw crushers</li>
+                            <li>Hydraulic Single Cylinder Cone Crushers</li>
+                            <li>HS & VS Impact Crushers</li>
+                            <li>Bucket Crushers for concrete and rocks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3>Screens & Feeders</h3>
+                        <p>High-performance screening and feeding solutions for optimal material processing.</p>
+                        <ul class="service-features">
+                            <li>YKR Standard Circular Motion Screens</li>
+                            <li>YKR Heavy Linear Screens</li>
+                            <li>Banana screens</li>
+                            <li>Grizzly feeders (HPF, MPF, GPF)</li>
+                            <li>Dewatering screens</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3>Conveyors & Mobile Equipment</h3>
+                        <p>Efficient material handling solutions for mining and processing operations.</p>
+                        <ul class="service-features">
+                            <li>Belt conveyor systems</li>
+                            <li>Mobile crushing plants</li>
+                            <li>Modular plant design</li>
+                            <li>Material handling systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Processing Equipment -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">🔧</div>
+                    <h2 class="category-title">Processing Equipment</h2>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Cyclones & Spirals</h3>
+                        <p>High-efficiency separation and classification equipment for mineral processing.</p>
+                        <ul class="service-features">
+                            <li>Hydrocyclones with innovative scroll inlet</li>
+                            <li>Spirals for density separation</li>
+                            <li>Flapper valves</li>
+                            <li>Lightweight construction with polyurethane lining</li>
+                            <li>Applications: Classification, desliming, densifying</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3>Dense Fluid Separation</h3>
+                        <p>Advanced separation technology as an efficient alternative to DMS.</p>
+                        <ul class="service-features">
+                            <li>Uses 75% less electricity</li>
+                            <li>No FESI or magnetite required</li>
+                            <li>Reduced water consumption</li>
+                            <li>Lower structural steel requirements</li>
+                            <li>Operational contracts from USD2/ton</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3>Filter Presses</h3>
+                        <p>Comprehensive range of filtration solutions for dewatering applications.</p>
+                        <ul class="service-features">
+                            <li>Over Beam High-Pressure PP</li>
+                            <li>Membrane Filter Press with Auto Washing</li>
+                            <li>Program Controlled Auto High-pressure</li>
+                            <li>Quick Shifting Membrane/Chamber Press</li>
+                            <li>General Hydraulic Chamber Filter Press</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Electrical & Pumps -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">⚡</div>
+                    <h2 class="category-title">Electrical & Pumps</h2>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Electric Motors</h3>
+                        <p>Comprehensive range of electric motors for various industrial applications.</p>
+                        <ul class="service-features">
+                            <li>Cast iron and aluminum ranges</li>
+                            <li>High efficiency models</li>
+                            <li>Pad mount mine spec motors</li>
+                            <li>Scrapper winch range</li>
+                            <li>Variable speed drives</li>
+                            <li>Conforms to IEC standards & SABS approved</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3>Pumps & Spares</h3>
+                        <p>Robust pumping solutions and replacement parts for demanding applications.</p>
+                        <ul class="service-features">
+                            <li>Slurry pump spares</li>
+                            <li>100% replacements for Battlemax, Warman, Envirotech</li>
+                            <li>Supported by local foundry</li>
+                            <li>Re-smelting of scrap liners and pumps</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h3>Screen Panels</h3>
+                        <p>High-performance screening surfaces for various applications.</p>
+                        <ul class="service-features">
+                            <li>Polyurethane and rubber mold panels</li>
+                            <li>High open area designs</li>
+                            <li>Rubber grizzly panels</li>
+                            <li>Dewatering screen panels</li>
+                            <li>Various fixing method options</li>
+                            <li>ISO 9001:2008 compliant</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Industry Focus -->
+    <section class="industry-focus">
+        <div class="container">
+            <h2 class="section-title">Industry Focus</h2>
+            
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">💎</div>
+                    <h3>Mining & Minerals</h3>
+                    <p>Specialized solutions for diamonds, gold, iron ore, chrome, nickel, phosphate, copper, manganese, platinum, and coal.</p>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">🏗️</div>
+                    <h3>Construction Materials</h3>
+                    <p>Processing solutions for aggregate, sand, clay, limestone, cement, and clinker with focus on quality and efficiency.</p>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">♻️</div>
+                    <h3>Recycling</h3>
+                    <p>Innovative recycling technologies for concrete, rubble, and scrap metal with environmentally conscious approaches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="section-title" style="color: var(--white);">Ready to Optimize Your Operations?</h2>
+                <p>Our team of experts is ready to provide you with tailored solutions that maximize efficiency, reduce downtime, and lower your cost of ownership.</p>
+                <a href="contact.html" class="cta-button">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Reakgato Solutions (Pty) Ltd. All rights reserved. | Together Toward Prosperity</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 35, 126, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%)';
+            }
+        });
+
+        // Animate service items on scroll
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    entry.target.style.opacity = '0';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-item, .industry-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
