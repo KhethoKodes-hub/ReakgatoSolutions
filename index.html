@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reakgato Solutions - Mining & Minerals Processing Excellence</title>
+    <link rel="icon" href="./assets/ReakgatoLogo.png" type="image/x-icon">
     <style>
         * {
             margin: 0;
@@ -28,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
             color: var(--white);
@@ -97,10 +97,9 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(63, 81, 181, 0.8)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23344955" width="1200" height="600"/><polygon fill="%232c3e50" points="0,600 1200,400 1200,600"/></svg>');
+                        url('./assets/reahero.png');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -150,7 +149,6 @@
             background: linear-gradient(45deg, var(--accent-gold), var(--primary-orange));
         }
 
-        /* Stats Section */
         .stats {
             background: var(--gray-dark);
             color: var(--white);
@@ -189,7 +187,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Services Section */
         .services {
             padding: 5rem 0;
             background: var(--gray-light);
@@ -270,7 +267,6 @@
             transform: rotate(360deg);
         }
 
-        /* About Section */
         .about {
             padding: 5rem 0;
             background: var(--white);
@@ -326,7 +322,6 @@
             animation: rotate 10s linear infinite;
         }
 
-        /* Contact Section */
         .contact {
             background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
             color: var(--white);
@@ -371,7 +366,6 @@
             font-size: 1.2rem;
         }
 
-        /* Footer */
         footer {
             background: var(--gray-dark);
             color: var(--white);
@@ -379,7 +373,6 @@
             padding: 2rem 0;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -396,7 +389,6 @@
             to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -415,7 +407,6 @@
             }
         }
 
-        /* Floating particles */
         .particles {
             position: absolute;
             top: 0;
@@ -441,9 +432,9 @@
     </style>
 </head>
 <body>
-     a    <header>
+         <header>
         <nav>
-            <a href="#" class="logo">REAKGATO</a>
+            <a href="#" class="logo"><img src="assets/ReakgatoLogo.png" width="80" height="80"></a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -490,7 +481,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
@@ -529,7 +519,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Reakgato Solutions</h2>
@@ -554,7 +543,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
@@ -618,7 +606,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 Reakgato Solutions (Pty) Ltd. All rights reserved. | Together Toward Prosperity</p>
@@ -626,7 +613,6 @@
     </footer>
 
     <script>
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -640,7 +626,6 @@
             });
         });
 
-        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
@@ -651,7 +636,6 @@
             }
         });
 
-        // Animate stats on scroll
         const observerOptions = {
             threshold: 0.5,
             rootMargin: '0px 0px -100px 0px'
@@ -669,7 +653,6 @@
             observer.observe(el);
         });
 
-        // Add dynamic particles
         function createParticle() {
             const particle = document.createElement('div');
             particle.className = 'particle';
@@ -686,8 +669,7 @@
             }, 6000);
         }
 
-        // Create particles periodically
-        setInterval(createParticle, 3000);
+         setInterval(createParticle, 3000);
     </script>
 </body>
 </html>

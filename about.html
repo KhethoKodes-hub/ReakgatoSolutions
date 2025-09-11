@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Reakgato Solutions</title>
+    <link rel="icon" href="./assets/ReakgatoLogo.png" type="image/x-icon">
     <style>
         * {
             margin: 0;
@@ -28,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
             color: var(--white);
@@ -97,7 +97,6 @@
             transform: translateY(-2px);
         }
 
-        /* Page Banner */
         .page-banner {
             background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(63, 81, 181, 0.8)), 
                         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23344955" width="1200" height="400"/><polygon fill="%232c3e50" points="0,400 1200,300 1200,400"/></svg>');
@@ -153,7 +152,6 @@
             color: var(--primary-orange);
         }
 
-        /* About Content */
         .about-content {
             padding: 5rem 0;
         }
@@ -216,7 +214,6 @@
             padding: 2rem;
         }
 
-        /* Leadership Section */
         .leadership {
             background: var(--gray-light);
             padding: 5rem 0;
@@ -271,7 +268,6 @@
             line-height: 1.6;
         }
 
-        /* Values Section */
         .values {
             padding: 5rem 0;
         }
@@ -328,7 +324,6 @@
             color: var(--white);
         }
 
-        /* BEE Certification */
         .certification {
             background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
             color: var(--white);
@@ -355,7 +350,6 @@
             margin: 0 auto;
         }
 
-        /* Footer */
         footer {
             background: var(--gray-dark);
             color: var(--white);
@@ -363,7 +357,6 @@
             padding: 2rem 0;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -375,7 +368,6 @@
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -392,10 +384,9 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
-            <a href="index.html" class="logo">REAKGATO</a>
+            <a href="index.html" class="logo"><img src="assets/ReakgatoLogo.png" width="80" height="80"></a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
@@ -405,7 +396,6 @@
         </nav>
     </header>
 
-    <!-- Page Banner -->
     <section class="page-banner">
         <div class="banner-content">
             <h1>About Reakgato Solutions</h1>
@@ -416,7 +406,6 @@
         </div>
     </section>
 
-    <!-- About Content -->
     <section class="about-content">
         <div class="container">
             <h2 class="section-title">Our Story</h2>
@@ -437,7 +426,6 @@
         </div>
     </section>
 
-    <!-- Leadership Section -->
     <section class="leadership">
         <div class="container">
             <h2 class="section-title">Our Leadership</h2>
@@ -464,7 +452,6 @@
         </div>
     </section>
 
-    <!-- Values Section -->
     <section class="values">
         <div class="container">
             <h2 class="section-title">Our Values</h2>
@@ -497,7 +484,6 @@
         </div>
     </section>
 
-    <!-- BEE Certification -->
     <section class="certification">
         <div class="container">
             <div class="cert-badge">B-BBEE<br>Level 1</div>
@@ -510,7 +496,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 Reakgato Solutions (Pty) Ltd. All rights reserved. | Together Toward Prosperity</p>
@@ -518,7 +503,6 @@
     </footer>
 
     <script>
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -532,7 +516,6 @@
             });
         });
 
-        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
